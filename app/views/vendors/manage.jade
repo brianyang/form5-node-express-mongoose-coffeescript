@@ -1,0 +1,27 @@
+extends base
+
+block title
+  | Manage vendors
+
+block main
+  h2 Manage vendors
+
+  if message != ''
+    .alert.alert-notice
+      a.close(data-dismiss="alert", href="javascript:void(0)") x
+      | #{message}
+
+  table.table.table-striped
+    tr
+      th Title
+      th Created
+      th Actions
+    each vendor in vendors
+      tr
+        td
+          a(href='/vendors/#{vendor.id}/edit')=vendor.title
+        td= dateShortMon(vendor.createdAt)
+        td
+          a(href='/vendors/#{vendor.id}/edit') edit
+          |  |
+          a(href='/vendors/#{vendor.id}/destroy', onclick='return confirm("Are you sure you want to delete vendor #{vendor.title}?") ? true : false') delete

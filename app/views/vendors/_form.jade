@@ -1,0 +1,28 @@
+extends base
+
+block content
+  - var action = '/vendors'
+  if (!vendor.isNew)
+    - action += '/'+vendor.id
+
+  form(action=action, method='post')
+    if(!vendor.isNew)
+      input(type='hidden', name='_method', value='put')
+
+    p
+      label Title
+        br
+        input.input.input-xxlarge(name='title', type='text', value=vendor.title)
+
+    p
+      label Body
+        br
+        textarea.input-xxlarge(name='body', rows=20, placeholder='Use Markdown syntax')=vendor.body
+
+    p
+      label Tags
+        br
+        input(name='tags', type='text', value=vendor.tags, placeholder='Enter tags, comma seperated')
+
+    p
+      button.btn.btn-primary(type='submit') Save vendor

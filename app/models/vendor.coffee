@@ -14,7 +14,7 @@ setTags = (tags) ->
 #
 Schema = mongoose.Schema
 
-ArticleSchema = new Schema
+VendorSchema = new Schema
   title:
     type: String
     trim: true
@@ -36,11 +36,11 @@ ArticleSchema = new Schema
 #
 # Schema statics
 #
-ArticleSchema.statics =
+VendorSchema.statics =
   list: (cb) ->
     this.find().sort
       createdAt: -1
     .exec(cb)
     return
 
-Article = mongoose.model 'Article', ArticleSchema
+Vendor = mongoose.model 'Vendor', VendorSchema

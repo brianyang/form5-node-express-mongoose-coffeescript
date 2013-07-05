@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  .container
+    .row
+      .span9
+        block main
+      .span3
+        .well.sidebar-nav
+          ul.nav.nav-list
+            li
+              a(href='/articles/') List articles
+            li
+              a(href='/articles/new') New article

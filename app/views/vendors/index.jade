@@ -1,0 +1,27 @@
+extends ../layout
+
+block title
+  | List vendors
+
+block content
+
+  each vendor in vendors
+
+    .container
+      .row
+        .span12
+          h1=vendor.title
+      .row
+        .span2
+          small
+            p
+              b Published
+              br
+              != dateShortMon(vendor.createdAt)
+
+            p
+              b Posted in
+              br
+              | #{vendor.tags}
+        .span10
+          != marked(vendor.body)
