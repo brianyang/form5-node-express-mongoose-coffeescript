@@ -6,6 +6,7 @@
 
 * implement some form of OAuth
 
+## details
 
 - Object modeling for MongoDB using [Mongoose](http://mongoosejs.com/).
 - [Passport.js](http://passportjs.org/) for user authentication.
