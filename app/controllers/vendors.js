@@ -106,3 +106,7 @@ exports.vendor = function(req, res, next, id) {
     next();
   });
 };
+
+exports["static"] = function(req, res) {
+  res.render('static/index');
+};

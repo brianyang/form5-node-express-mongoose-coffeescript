@@ -25,7 +25,7 @@ module.exports = (app, passport, auth) ->
 
   # Article routes
   articles = require '../app/controllers/articles'
-  app.get '/', articles.index
+  app.get '/article-index', articles.index
   app.get '/articles', articles.manage
   app.get '/articles/new', auth.requiresLogin, articles.new
   app.get '/articles/:articleId', articles.show
@@ -38,6 +38,7 @@ module.exports = (app, passport, auth) ->
 
 
   vendors = require '../app/controllers/vendors'
+  app.get '/', vendors.static
   app.get '/vendor-index', vendors.index
   app.get '/vendor/json', vendors.json
   app.get '/vendors', vendors.manage

@@ -19,7 +19,7 @@ module.exports = function(app, passport, auth) {
   app.get('/users/:userId/destroy', auth.requiresLogin, users.destroy);
   app.param('userId', users.user);
   articles = require('../app/controllers/articles');
-  app.get('/', articles.index);
+  app.get('/article-index', articles.index);
   app.get('/articles', articles.manage);
   app.get('/articles/new', auth.requiresLogin, articles["new"]);
   app.get('/articles/:articleId', articles.show);
@@ -29,6 +29,7 @@ module.exports = function(app, passport, auth) {
   app.get('/articles/:articleId/destroy', auth.requiresLogin, articles.destroy);
   app.param('articleId', articles.article);
   vendors = require('../app/controllers/vendors');
+  app.get('/', vendors["static"]);
   app.get('/vendor-index', vendors.index);
   app.get('/vendor/json', vendors.json);
   app.get('/vendors', vendors.manage);

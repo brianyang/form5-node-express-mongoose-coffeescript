@@ -103,3 +103,12 @@ exports.vendor = (req, res, next, id) ->
     next()
     return
   return
+
+#
+# vendors static
+#
+exports.static = (req, res) ->
+  res.render 'static/index'
+  return
+
+
